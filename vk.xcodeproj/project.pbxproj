@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773CFE206E1820E85723DBF6 /* libPods-vk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F9A42F1FB823591A15D136 /* libPods-vk.a */; };
 		A291B6301F1DEFB100644D88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B62F1F1DEFB100644D88 /* main.m */; };
 		A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6321F1DEFB100644D88 /* AppDelegate.m */; };
 		A291B6361F1DEFB100644D88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6351F1DEFB100644D88 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55F9A42F1FB823591A15D136 /* libPods-vk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72BFFE4B4AA89E748AB4DD90 /* Pods-vk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.release.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.release.xcconfig"; sourceTree = "<group>"; };
 		A291B62B1F1DEFB100644D88 /* vk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A291B62F1F1DEFB100644D88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A291B6311F1DEFB100644D88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		A291B6471F1DEFB100644D88 /* vkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A291B64B1F1DEFB100644D88 /* vkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vkTests.m; sourceTree = "<group>"; };
 		A291B64D1F1DEFB100644D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBB30F6A97F1B7F1A824AAF9 /* Pods-vk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773CFE206E1820E85723DBF6 /* libPods-vk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +67,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D6E9D095B8C4C862F1DAABF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBB30F6A97F1B7F1A824AAF9 /* Pods-vk.debug.xcconfig */,
+				72BFFE4B4AA89E748AB4DD90 /* Pods-vk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A291B6221F1DEFB100644D88 = {
 			isa = PBXGroup;
 			children = (
 				A291B62D1F1DEFB100644D88 /* vk */,
 				A291B64A1F1DEFB100644D88 /* vkTests */,
 				A291B62C1F1DEFB100644D88 /* Products */,
+				9D6E9D095B8C4C862F1DAABF /* Pods */,
+				B486E22D39916EA5BA06859C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +130,14 @@
 			path = vkTests;
 			sourceTree = "<group>";
 		};
+		B486E22D39916EA5BA06859C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55F9A42F1FB823591A15D136 /* libPods-vk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A291B6501F1DEFB100644D88 /* Build configuration list for PBXNativeTarget "vk" */;
 			buildPhases = (
+				7D73C25A228D26CA31B154FE /* [CP] Check Pods Manifest.lock */,
 				A291B6271F1DEFB100644D88 /* Sources */,
 				A291B6281F1DEFB100644D88 /* Frameworks */,
 				A291B6291F1DEFB100644D88 /* Resources */,
+				FA94918CBFFBCFAB2228E3B1 /* [CP] Embed Pods Frameworks */,
+				1C0D4DF6B64B6F1DA5F6C130 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +237,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C0D4DF6B64B6F1DA5F6C130 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vk/Pods-vk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D73C25A228D26CA31B154FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA94918CBFFBCFAB2228E3B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vk/Pods-vk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A291B6271F1DEFB100644D88 /* Sources */ = {
@@ -353,6 +428,7 @@
 		};
 		A291B6511F1DEFB100644D88 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBB30F6A97F1B7F1A824AAF9 /* Pods-vk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = vk/Info.plist;
@@ -364,6 +440,7 @@
 		};
 		A291B6521F1DEFB100644D88 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72BFFE4B4AA89E748AB4DD90 /* Pods-vk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = vk/Info.plist;
