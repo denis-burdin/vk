@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StartViewController.h
 //  vk
 //
 //  Created by Dennis Burdin on 18.07.17.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <VKSdk.h>
 
-@interface ViewController : UIViewController
+@interface StartViewController : UIViewController <VKSdkDelegate>
 
 
 @end
