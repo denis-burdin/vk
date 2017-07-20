@@ -14,22 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - SVPullToRefresh (0.4.1)
-  - UIScrollView-InfiniteScroll (0.9.1)
   - VK-ios-sdk (1.4.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - SVPullToRefresh
-  - UIScrollView-InfiniteScroll
   - VK-ios-sdk
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
-  UIScrollView-InfiniteScroll: 14e204c50ca4040467e1cbfa141dad7a18919b56
   VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
 
-PODFILE CHECKSUM: 4fc685005e3ca483ede39b5063368209e2ef8f99
+PODFILE CHECKSUM: b4da4ccdfed683f67d2d4b206af02de1e440d0f2
 
 COCOAPODS: 1.2.1

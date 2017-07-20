@@ -16,6 +16,9 @@
 		A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2577D771F1F4D6100268A91 /* ApiCallViewController.m */; };
 		A27071491F1E007B0035E028 /* VKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A27071481F1E007B0035E028 /* VKWrapper.m */; };
 		A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2763B541F1F5CB60015D279 /* NewsViewController.m */; };
+		A282146D1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A282146C1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m */; };
+		A28214711F20F22700BC9668 /* CustomInfiniteIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A28214701F20F22700BC9668 /* CustomInfiniteIndicator.m */; };
+		A28214741F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = A28214731F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m */; };
 		A291B6301F1DEFB100644D88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B62F1F1DEFB100644D88 /* main.m */; };
 		A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6321F1DEFB100644D88 /* AppDelegate.m */; };
 		A291B6361F1DEFB100644D88 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6351F1DEFB100644D88 /* StartViewController.m */; };
@@ -55,6 +58,12 @@
 		A270714D1F1E6CEC0035E028 /* vk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vk.entitlements; sourceTree = "<group>"; };
 		A2763B531F1F5CB60015D279 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		A2763B541F1F5CB60015D279 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		A282146B1F20F1E300BC9668 /* UIApplication+NetworkIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkIndicator.h"; sourceTree = "<group>"; };
+		A282146C1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkIndicator.m"; sourceTree = "<group>"; };
+		A282146F1F20F22700BC9668 /* CustomInfiniteIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfiniteIndicator.h; sourceTree = "<group>"; };
+		A28214701F20F22700BC9668 /* CustomInfiniteIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfiniteIndicator.m; sourceTree = "<group>"; };
+		A28214721F20FC3300BC9668 /* UIScrollView+InfiniteScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+InfiniteScroll.h"; sourceTree = "<group>"; };
+		A28214731F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+InfiniteScroll.m"; sourceTree = "<group>"; };
 		A291B62B1F1DEFB100644D88 /* vk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A291B62F1F1DEFB100644D88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A291B6311F1DEFB100644D88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,6 +112,7 @@
 		A23D02811F20D6EA0044245A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A282146E1F20F21D00BC9668 /* Others */,
 				A23D02821F20D6F60044245A /* Cells */,
 			);
 			name = Views;
@@ -123,6 +133,10 @@
 			children = (
 				A23D02891F20E3830044245A /* UIViewController+Utils.h */,
 				A23D028A1F20E3830044245A /* UIViewController+Utils.m */,
+				A282146B1F20F1E300BC9668 /* UIApplication+NetworkIndicator.h */,
+				A282146C1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m */,
+				A28214721F20FC3300BC9668 /* UIScrollView+InfiniteScroll.h */,
+				A28214731F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -151,6 +165,15 @@
 				A23D02701F20ABCF0044245A /* VKPost.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		A282146E1F20F21D00BC9668 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				A282146F1F20F22700BC9668 /* CustomInfiniteIndicator.h */,
+				A28214701F20F22700BC9668 /* CustomInfiniteIndicator.m */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		A291B6221F1DEFB100644D88 = {
@@ -378,13 +401,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28214741F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m in Sources */,
 				A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */,
 				A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */,
+				A282146D1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m in Sources */,
 				A27071491F1E007B0035E028 /* VKWrapper.m in Sources */,
 				A291B63C1F1DEFB100644D88 /* vk.xcdatamodeld in Sources */,
 				A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */,
 				A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */,
 				A291B6361F1DEFB100644D88 /* StartViewController.m in Sources */,
+				A28214711F20F22700BC9668 /* CustomInfiniteIndicator.m in Sources */,
 				A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */,
 				A23D02711F20ABCF0044245A /* VKPost.m in Sources */,
 				A291B6301F1DEFB100644D88 /* main.m in Sources */,

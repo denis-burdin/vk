@@ -14,6 +14,7 @@ static NSString* const APP_ID = @"6118016";
 
 @interface VKWrapper()
 {
+    NSString* _next_from;
 }
 
 @end
@@ -33,7 +34,7 @@ static NSString* const APP_ID = @"6118016";
 }
 
 - (void)receivePosts:(void(^)(NSArray *posts, NSError *error))completion {
-    VKRequest* request = [VKRequest requestWithMethod:@"newsfeed.get" parameters:@{@"filters" : @"post", @"return_banned" : @0, @"count" : @20} modelClass:[VKUsersArray class]];
+    VKRequest* request = [VKRequest requestWithMethod:@"newsfeed.get" parameters:@{@"filters" : @"post", @"return_banned" : @0, @"count" : @20, @"start_from" : _next_from ?: @""} modelClass:[VKUsersArray class]];
     request.debugTiming = YES;
     request.requestTimeout = 10;
     
@@ -41,6 +42,7 @@ static NSString* const APP_ID = @"6118016";
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[response.responseString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
         
+        _next_from = [[json valueForKey:@"response"] valueForKey:@"next_from"];
         NSArray *items = [[json valueForKey:@"response"] valueForKey:@"items"];
         NSMutableArray *posts = [NSMutableArray new];
         for (NSDictionary* item in items) {
