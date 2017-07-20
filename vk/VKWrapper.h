@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <VKSdk.h>
 
-@interface VKWrapper : NSObject<VKSdkDelegate>
+@interface VKWrapper : NSObject
 
-    @property (nonatomic, strong) VKSdk *sdkInstance;
++ (instancetype)sharedInstance;
+- (void)receivePosts:(void(^)(NSArray *posts, NSError *error))completion;
 
-    - (void)initialize;
-    + (instancetype)sharedInstance;
-    - (void)signIn;
-    
 @end

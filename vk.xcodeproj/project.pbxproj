@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		773CFE206E1820E85723DBF6 /* libPods-vk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F9A42F1FB823591A15D136 /* libPods-vk.a */; };
+		A23D02711F20ABCF0044245A /* VKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D02701F20ABCF0044245A /* VKPost.m */; };
+		A23D02861F20D7440044245A /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D02841F20D7440044245A /* PostTableViewCell.m */; };
+		A23D02871F20D7440044245A /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23D02851F20D7440044245A /* PostTableViewCell.xib */; };
+		A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D028A1F20E3830044245A /* UIViewController+Utils.m */; };
 		A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2577D741F1F4D4E00268A91 /* TestViewController.m */; };
 		A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2577D771F1F4D6100268A91 /* ApiCallViewController.m */; };
 		A27071491F1E007B0035E028 /* VKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A27071481F1E007B0035E028 /* VKWrapper.m */; };
+		A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2763B541F1F5CB60015D279 /* NewsViewController.m */; };
 		A291B6301F1DEFB100644D88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B62F1F1DEFB100644D88 /* main.m */; };
 		A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6321F1DEFB100644D88 /* AppDelegate.m */; };
 		A291B6361F1DEFB100644D88 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B6351F1DEFB100644D88 /* StartViewController.m */; };
@@ -34,6 +39,13 @@
 /* Begin PBXFileReference section */
 		55F9A42F1FB823591A15D136 /* libPods-vk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFFE4B4AA89E748AB4DD90 /* Pods-vk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.release.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.release.xcconfig"; sourceTree = "<group>"; };
+		A23D026F1F20ABCF0044245A /* VKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPost.h; sourceTree = "<group>"; };
+		A23D02701F20ABCF0044245A /* VKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPost.m; sourceTree = "<group>"; };
+		A23D02831F20D7440044245A /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		A23D02841F20D7440044245A /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		A23D02851F20D7440044245A /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		A23D02891F20E3830044245A /* UIViewController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utils.h"; sourceTree = "<group>"; };
+		A23D028A1F20E3830044245A /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
 		A2577D731F1F4D4E00268A91 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		A2577D741F1F4D4E00268A91 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		A2577D761F1F4D6100268A91 /* ApiCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCallViewController.h; sourceTree = "<group>"; };
@@ -41,6 +53,8 @@
 		A27071471F1E007B0035E028 /* VKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKWrapper.h; sourceTree = "<group>"; };
 		A27071481F1E007B0035E028 /* VKWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKWrapper.m; sourceTree = "<group>"; };
 		A270714D1F1E6CEC0035E028 /* vk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vk.entitlements; sourceTree = "<group>"; };
+		A2763B531F1F5CB60015D279 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		A2763B541F1F5CB60015D279 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		A291B62B1F1DEFB100644D88 /* vk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A291B62F1F1DEFB100644D88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A291B6311F1DEFB100644D88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +100,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A23D02811F20D6EA0044245A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A23D02821F20D6F60044245A /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A23D02821F20D6F60044245A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A23D02831F20D7440044245A /* PostTableViewCell.h */,
+				A23D02841F20D7440044245A /* PostTableViewCell.m */,
+				A23D02851F20D7440044245A /* PostTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		A23D02881F20E34A0044245A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A23D02891F20E3830044245A /* UIViewController+Utils.h */,
+				A23D028A1F20E3830044245A /* UIViewController+Utils.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		A2577D721F1F4B4100268A91 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +136,8 @@
 				A2577D741F1F4D4E00268A91 /* TestViewController.m */,
 				A2577D761F1F4D6100268A91 /* ApiCallViewController.h */,
 				A2577D771F1F4D6100268A91 /* ApiCallViewController.m */,
+				A2763B531F1F5CB60015D279 /* NewsViewController.h */,
+				A2763B541F1F5CB60015D279 /* NewsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -104,6 +147,8 @@
 			children = (
 				A27071471F1E007B0035E028 /* VKWrapper.h */,
 				A27071481F1E007B0035E028 /* VKWrapper.m */,
+				A23D026F1F20ABCF0044245A /* VKPost.h */,
+				A23D02701F20ABCF0044245A /* VKPost.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -132,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				A270714D1F1E6CEC0035E028 /* vk.entitlements */,
+				A23D02881F20E34A0044245A /* Categories */,
+				A23D02811F20D6EA0044245A /* Views */,
 				A2577D721F1F4B4100268A91 /* Controllers */,
 				A27071461F1E00590035E028 /* Core */,
 				A291B6311F1DEFB100644D88 /* AppDelegate.h */,
@@ -265,6 +312,7 @@
 				A291B6411F1DEFB100644D88 /* LaunchScreen.storyboard in Resources */,
 				A291B63E1F1DEFB100644D88 /* Assets.xcassets in Resources */,
 				A291B6391F1DEFB100644D88 /* Main.storyboard in Resources */,
+				A23D02871F20D7440044245A /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +379,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */,
+				A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */,
 				A27071491F1E007B0035E028 /* VKWrapper.m in Sources */,
 				A291B63C1F1DEFB100644D88 /* vk.xcdatamodeld in Sources */,
+				A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */,
 				A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */,
 				A291B6361F1DEFB100644D88 /* StartViewController.m in Sources */,
 				A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */,
+				A23D02711F20ABCF0044245A /* VKPost.m in Sources */,
 				A291B6301F1DEFB100644D88 /* main.m in Sources */,
+				A23D02861F20D7440044245A /* PostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,16 @@
 //
 
 #import "VKWrapper.h"
+#import "VKPost.h"
+#import <VKSdk.h>
 
 static NSString* const APP_ID = @"6118016";
+
+@interface VKWrapper()
+{
+}
+
+@end
 
 @implementation VKWrapper
 
@@ -24,36 +32,40 @@ static NSString* const APP_ID = @"6118016";
     return vkWrapper;
 }
 
-- (void)initialize {
-    self.sdkInstance = [VKSdk initializeWithAppId:APP_ID];
-    [self.sdkInstance registerDelegate:self];
-}
-
-- (void)signIn {
-    NSArray *SCOPE = @[@"friends", @"email"];
-    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
-        if (state == VKAuthorizationAuthorized) {
-            // Authorized and ready to go
-        } else if (error) {
-            // Some error happend, but you may try later
-            [VKSdk authorize:SCOPE];
+- (void)receivePosts:(void(^)(NSArray *posts, NSError *error))completion {
+    VKRequest* request = [VKRequest requestWithMethod:@"newsfeed.get" parameters:@{@"filters" : @"post", @"return_banned" : @0, @"count" : @20} modelClass:[VKUsersArray class]];
+    request.debugTiming = YES;
+    request.requestTimeout = 10;
+    
+    [request executeWithResultBlock:^(VKResponse *response) {
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[response.responseString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
+        
+        NSArray *items = [[json valueForKey:@"response"] valueForKey:@"items"];
+        NSMutableArray *posts = [NSMutableArray new];
+        for (NSDictionary* item in items) {
+            NSString* content = [item objectForKey:@"text"];
+            if (content.length > 0 && [item objectForKey:@"date"]) {
+                double dtPost = [[item objectForKey:@"date"] doubleValue];
+                VKPost *post = [VKPost new];
+                post.date = [NSDate dateWithTimeIntervalSince1970:dtPost];
+                post.content = content;
+                [posts addObject:post];
+            }
         }
+        
+        if (posts.count) {
+            NSArray *sortedPosts = [posts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+                NSDate* first = [(VKPost*)obj1 date];
+                NSDate* second = [(VKPost*)obj2 date];
+                return [first compare:second] == NSOrderedAscending;
+            }];
+            
+            completion(sortedPosts, nil);
+        }
+    } errorBlock:^(NSError *error) {
+        completion(nil, error);
     }];
-}
-    
-// VKSdkDelegate
-- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
-    if (result.token) {
-        // Пользователь успешно авторизован
-    } else if (result.error) {
-        // Пользователь отменил авторизацию или произошла ошибка
-    }
-    
-    NSLog(@"");
-}
-
-- (void)vkSdkUserAuthorizationFailed {
-    NSLog(@"vkSdkUserAuthorizationFailed");
 }
 
 @end

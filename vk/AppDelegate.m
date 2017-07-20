@@ -19,7 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[VKWrapper sharedInstance] initialize];
     return YES;
 }
 
