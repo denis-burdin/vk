@@ -10,5 +10,6 @@
 
 @interface PostTableViewCell : UITableViewCell <UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
+@property (weak, nonatomic) IBOutlet UILabel *lblDate;
 
 @end

@@ -106,10 +106,18 @@ static NSArray *labels = nil;
     PostTableViewCell *cell = (PostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"postTableViewCell" forIndexPath:indexPath];
     
     CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
-    NSString *content = [(VKPost*)[_tableData objectAtIndex:indexPath.row] content];
+    VKPost* post = (VKPost*)[_tableData objectAtIndex:indexPath.row];
+    NSString *content = [post content];
     CGRect expectedLabelSize = [content boundingRectWithSize:szMaxLabel options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.lblContent.font } context:nil];
     cell.lblContent.text = content;
     [cell.lblContent setFrame:CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, expectedLabelSize.size.width, expectedLabelSize.size.height)];
+    
+    NSDateFormatter* f = [[NSDateFormatter alloc] init];
+    [f setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [f setLocale:[NSLocale currentLocale]];
+    [f setDateStyle:NSDateFormatterMediumStyle];
+    [f setTimeStyle:NSDateFormatterShortStyle];
+    cell.lblDate.text = [f stringFromDate:post.date];
 
     return cell;
 }
