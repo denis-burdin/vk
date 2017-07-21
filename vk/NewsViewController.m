@@ -15,8 +15,6 @@
 #import "VKWrapper.h"
 #import "VKPost.h"
 
-#define USE_AUTOSIZING_CELLS 1
-
 @interface NewsViewController ()
 {
     NSMutableArray *_tableData;
@@ -34,18 +32,10 @@ static NSArray *labels = nil;
     _tableData = [NSMutableArray new];
     [self vk_registerAllNibsWithTableView:self.tableView];
 
-#if USE_AUTOSIZING_CELLS
-    // enable auto-sizing cells on iOS 8
-    if([self.tableView respondsToSelector:@selector(layoutMargins)]) {
-        self.tableView.estimatedRowHeight = 88.0;
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-    }
-#endif
-
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Выход" style:UIBarButtonItemStyleDone target:self action:@selector(logout:)];
     self.tableView.tableFooterView = [UIView new];
-
+    
     CGRect indicatorRect;
 #if TARGET_OS_TV
     indicatorRect = CGRectMake(0, 0, 64, 64);
@@ -63,6 +53,10 @@ static NSArray *labels = nil;
     
     // Set custom trigger offset
     self.tableView.infiniteScrollTriggerOffset = 500;
+    
+    // set autolayout
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 88.0;
     
     __weak typeof(self) weakSelf = self;
     // Add infinite scroll handler
@@ -110,21 +104,18 @@ static NSArray *labels = nil;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PostTableViewCell *cell = (PostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"postTableViewCell" forIndexPath:indexPath];
-    cell.lblContent.text = [(VKPost*)[_tableData objectAtIndex:indexPath.row] content];
-
-#if USE_AUTOSIZING_CELLS
-    // enable auto-sizing cells on iOS 8
-    if([tableView respondsToSelector:@selector(layoutMargins)]) {
-        cell.lblContent.numberOfLines = 0;
-    }
-#endif
+    
+    CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
+    NSString *content = [(VKPost*)[_tableData objectAtIndex:indexPath.row] content];
+    CGRect expectedLabelSize = [content boundingRectWithSize:szMaxLabel options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.lblContent.font } context:nil];
+    cell.lblContent.text = content;
+    [cell.lblContent setFrame:CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, expectedLabelSize.size.width, expectedLabelSize.size.height)];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
-
 
 /*
 #pragma mark - Navigation
