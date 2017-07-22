@@ -88,88 +88,43 @@
                             <outlet property="delegate" destination="b87-kf-BqC" id="UeT-kr-9Ev"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="8Uc-W8-jYb" kind="show" identifier="toPostDetails" id="5S4-ph-ROH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsk-dX-gfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="-37"/>
         </scene>
-        <!--Test View Controller-->
-        <scene sceneID="hql-bv-kDg">
+        <!--Post Details View Controller-->
+        <scene sceneID="LpW-bC-W3u">
             <objects>
-                <tableViewController id="UW1-XM-BiP" customClass="TestViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iqs-3D-XEa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TestRow" id="8zk-8R-AQN">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8zk-8R-AQN" id="gJJ-76-ifN">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7g-ci-8Q1">
-                                            <rect key="frame" x="22" y="8" width="287" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UW1-XM-BiP" id="pnS-cn-d8L"/>
-                            <outlet property="delegate" destination="UW1-XM-BiP" id="gcj-my-pMr"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="Fzc-Df-HPc" kind="show" identifier="API_CALL" id="MLp-9p-qPb"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pkL-co-kXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="346" y="795"/>
-        </scene>
-        <!--Api Call View Controller-->
-        <scene sceneID="N7K-RT-7YF">
-            <objects>
-                <viewController id="Fzc-Df-HPc" customClass="ApiCallViewController" sceneMemberID="viewController">
+                <viewController id="8Uc-W8-jYb" customClass="PostDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xCo-Uw-eA0"/>
-                        <viewControllerLayoutGuide type="bottom" id="70i-7U-n9A"/>
+                        <viewControllerLayoutGuide type="top" id="Owd-SY-2yR"/>
+                        <viewControllerLayoutGuide type="bottom" id="qA2-NZ-cS3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XoB-Jj-WIU">
+                    <view key="view" contentMode="scaleToFill" id="9PB-Dl-f6L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Method result" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DhR-Dj-Tet">
-                                <rect key="frame" x="10" y="128" width="349" height="519"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qjm-D9-enI">
+                                <rect key="frame" x="16" y="141" width="343" height="506"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Method name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P36-pZ-BnP">
-                                <rect key="frame" x="10" y="83" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="callResult" destination="DhR-Dj-Tet" id="yGE-Vh-h4r"/>
-                        <outlet property="methodName" destination="P36-pZ-BnP" id="om6-GT-BUg"/>
+                        <outlet property="textViewContent" destination="Qjm-D9-enI" id="uzU-Bu-X6L"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5ve-eS-4Wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd0-dG-iL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="795"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="-37.331334332833585"/>
         </scene>
     </scenes>
 </document>
