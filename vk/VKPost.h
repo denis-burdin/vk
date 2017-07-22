@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSDate* date;
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, assign) double source_id;
 
 @end

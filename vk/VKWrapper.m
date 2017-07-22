@@ -8,6 +8,7 @@
 
 #import "VKWrapper.h"
 #import "VKPost.h"
+#import "VKSource.h"
 #import <VKSdk.h>
 
 static NSString* const APP_ID = @"6118016";
@@ -33,7 +34,7 @@ static NSString* const APP_ID = @"6118016";
     return vkWrapper;
 }
 
-- (void)receivePosts:(void(^)(NSArray *posts, NSError *error))completion {
+- (void)receivePosts:(void(^)(NSArray *posts, NSArray* sources, NSError *error))completion {
     VKRequest* request = [VKRequest requestWithMethod:@"newsfeed.get" parameters:@{@"filters" : @"post", @"return_banned" : @0, @"count" : @20, @"start_from" : _next_from ?: @""} modelClass:[VKUsersArray class]];
     request.debugTiming = YES;
     request.requestTimeout = 10;
@@ -52,10 +53,24 @@ static NSString* const APP_ID = @"6118016";
                 VKPost *post = [VKPost new];
                 post.date = [NSDate dateWithTimeIntervalSince1970:dtPost];
                 post.content = content;
+                post.source_id = [[item objectForKey:@"source_id"] doubleValue];
                 [posts addObject:post];
             }
         }
-        
+
+        NSMutableArray *sources = [NSMutableArray new];
+        NSArray* groups = [[json valueForKey:@"response"] valueForKey:@"groups"];
+        for (NSDictionary* group in groups) {
+            NSString* name = [group objectForKey:@"name"];
+            if (name.length > 0 && [group objectForKey:@"id"]) {
+                double source_id = [[group objectForKey:@"id"] doubleValue];
+                VKSource *source = [VKSource new];
+                source.source_id = source_id;
+                source.name = [group objectForKey:@"name"];
+                [sources addObject:source];
+            }
+        }
+
         if (posts.count) {
             NSArray *sortedPosts = [posts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 NSDate* first = [(VKPost*)obj1 date];
@@ -63,10 +78,10 @@ static NSString* const APP_ID = @"6118016";
                 return [first compare:second] == NSOrderedAscending;
             }];
             
-            completion(sortedPosts, nil);
+            completion(sortedPosts, sources, nil);
         }
     } errorBlock:^(NSError *error) {
-        completion(nil, error);
+        completion(nil, nil, error);
     }];
 }
 

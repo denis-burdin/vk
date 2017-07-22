@@ -14,10 +14,12 @@
 #import "PostTableViewCell.h"
 #import "VKWrapper.h"
 #import "VKPost.h"
+#import "VKSource.h"
 
 @interface NewsViewController ()
 {
     NSMutableArray *_tableData;
+    NSArray *_sources;
 }
 
 @end
@@ -61,9 +63,9 @@ static NSArray *labels = nil;
     __weak typeof(self) weakSelf = self;
     // Add infinite scroll handler
     [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
-        [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSError *error) {
+        [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSArray* sources, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf handleResponse:posts error:error];
+                [weakSelf handleResponse:posts andSources:sources error:error];
                 // Finish infinite scroll animations
                 [[UIApplication sharedApplication] stopNetworkActivity];
                 [tableView finishInfiniteScroll];
@@ -81,9 +83,10 @@ static NSArray *labels = nil;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)handleResponse:(NSArray *)data error:(NSError *)error {
+- (void)handleResponse:(NSArray *)data andSources:(NSArray*)sources error:(NSError *)error {
     // update table view
     [_tableData addObjectsFromArray:data];
+    _sources = sources;
     [self.tableView reloadData];
     
 //    [self.tableView beginUpdates];
@@ -105,6 +108,7 @@ static NSArray *labels = nil;
     
     PostTableViewCell *cell = (PostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"postTableViewCell" forIndexPath:indexPath];
     
+    // text
     CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
     VKPost* post = (VKPost*)[_tableData objectAtIndex:indexPath.row];
     NSString *content = [post content];
@@ -112,6 +116,7 @@ static NSArray *labels = nil;
     cell.lblContent.text = content;
     [cell.lblContent setFrame:CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, expectedLabelSize.size.width, expectedLabelSize.size.height)];
     
+    // date
     NSDateFormatter* f = [[NSDateFormatter alloc] init];
     [f setFormatterBehavior:NSDateFormatterBehavior10_4];
     [f setLocale:[NSLocale currentLocale]];
@@ -119,6 +124,14 @@ static NSArray *labels = nil;
     [f setTimeStyle:NSDateFormatterShortStyle];
     cell.lblDate.text = [f stringFromDate:post.date];
 
+    // author
+    for (VKSource* source in _sources) {
+        if (source.source_id == fabs(post.source_id)) {
+            cell.lblAuthor.text = source.name;
+            break;
+        }
+    }
+    
     return cell;
 }
 

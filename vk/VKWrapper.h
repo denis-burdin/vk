@@ -11,6 +11,6 @@
 @interface VKWrapper : NSObject
 
 + (instancetype)sharedInstance;
-- (void)receivePosts:(void(^)(NSArray *posts, NSError *error))completion;
+- (void)receivePosts:(void(^)(NSArray *posts, NSArray* sources, NSError *error))completion;
 
 @end
