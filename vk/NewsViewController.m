@@ -20,8 +20,8 @@
 
 @interface NewsViewController ()
 {
-    NSMutableArray *_tableData;
-    NSArray *_sources;
+    NSMutableDictionary *_posts;    // key = md5Hash; value = VKPost instance
+    NSMutableDictionary *_sources;  // key = source_id; value = VKSource instance
 }
 
 @end
@@ -33,7 +33,9 @@ static NSArray *labels = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tableData = [NSMutableArray new];
+    _posts = [NSMutableDictionary new];
+    _sources = [NSMutableDictionary new];
+    
     [self vk_registerAllNibsWithTableView:self.tableView];
 
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
@@ -102,10 +104,16 @@ static NSArray *labels = nil;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)handleResponse:(NSArray *)data andSources:(NSArray*)sources error:(NSError *)error {
+- (void)handleResponse:(NSArray *)posts andSources:(NSArray*)sources error:(NSError *)error {
     // update table view
-    [_tableData addObjectsFromArray:data];
-    _sources = sources;
+    for (VKPost *vkPost in posts) {
+        [_posts setObject:vkPost forKey:[vkPost md5Hash]];
+    }
+
+    for (VKSource *vkSource in sources) {
+        [_sources setObject:vkSource forKey:@(fabs(vkSource.source_id))];
+    }
+
     [self.tableView reloadData];
     
 //    [self.tableView beginUpdates];
@@ -120,7 +128,7 @@ static NSArray *labels = nil;
 
 #pragma mark TableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _tableData.count;
+    return _posts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,7 +137,7 @@ static NSArray *labels = nil;
     
     // text
     CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
-    VKPost* post = (VKPost*)[_tableData objectAtIndex:indexPath.row];
+    VKPost* post = (VKPost*)[[_posts allValues] objectAtIndex:indexPath.row];
     NSString *content = [post content];
     CGRect expectedLabelSize = [content boundingRectWithSize:szMaxLabel options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.lblContent.font } context:nil];
     cell.lblContent.text = content;
@@ -144,7 +152,7 @@ static NSArray *labels = nil;
     cell.lblDate.text = [f stringFromDate:post.date];
 
     // author
-    for (VKSource* source in _sources) {
+    for (VKSource* source in [_sources allValues]) {
         if (source.source_id == fabs(post.source_id)) {
             cell.lblAuthor.text = source.name;
             break;
@@ -155,7 +163,7 @@ static NSArray *labels = nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VKPost* post = (VKPost*)[_tableData objectAtIndex:indexPath.row];
+    VKPost* post = (VKPost*)[[_posts allValues] objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toPostDetails" sender:post];
 }
 
