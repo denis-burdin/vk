@@ -11,6 +11,12 @@
 @interface DataManager : NSObject
 
 + (instancetype)sharedManager;
+
 - (void)replicatePostsFromArray:(NSArray*)posts;
+- (NSArray*)getPosts;
+
+- (void)replicateSourcesFromArray:(NSArray*)sources;
+- (NSArray*)getSources;
+
 
 @end

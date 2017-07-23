@@ -11,14 +11,14 @@
 @implementation Source (Mappings)
 
 + (NSString *)primaryKey {
-    return @"id";
+    return @"identificator";
 }
 
 
 + (NSDictionary *)mappings {
     return @{
-             @"id"          : [self primaryKey],
-             @"name"        : @"name",
+             @"identificator" : [self primaryKey],
+             @"name"          : @"name",
              };
 }
 

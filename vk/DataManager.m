@@ -7,11 +7,11 @@
 //
 
 #import "DataManager.h"
-#import "NSString+MD5.h"
 #import "VKPost.h"
+#import "VKSource.h"
 #import "Post+Mappings.h"
+#import "Source+Mappings.h"
 #import <ObjectiveRecord.h>
-#import	<CommonCrypto/CommonDigest.h>
 
 @implementation DataManager
 
@@ -26,26 +26,53 @@
 
 - (void)replicatePostsFromArray:(NSArray*)posts {
     
-    for (VKPost* post in posts) {
-        NSDateFormatter* f = [NSDateFormatter new];
-        [f setFormatterBehavior:NSDateFormatterBehavior10_4];
-        [f setLocale:[NSLocale currentLocale]];
-        [f setDateStyle:NSDateFormatterMediumStyle];
-        [f setTimeStyle:NSDateFormatterShortStyle];
-        NSString* dateString = [f stringFromDate:post.date];
-
-        NSString* stringToHash = [NSString stringWithFormat:@"date: %@; content: %@; source_id: %f", dateString, post.content, fabs(post.source_id)];
-        NSString* md5Hash = [stringToHash MD5String];
-
-        Post *dbPost = [Post findOrCreate:@{[Post primaryKey] : md5Hash}];
+    for (VKPost* vkPost in posts) {
+        Post *dbPost = [Post findOrCreate:@{[Post primaryKey] : [vkPost md5Hash]}];
         if (dbPost.content.length == 0) {
-            dbPost.content = post.content;
-            dbPost.date = post.date;
-            dbPost.source_id = post.source_id;
+            dbPost.content = vkPost.content;
+            dbPost.date = vkPost.date;
+            dbPost.source_id = vkPost.source_id;
         }
     }
-    
+
     [CoreDataManager.sharedManager saveContext];
+}
+
+- (NSArray*)getPosts {
+    
+    NSMutableArray *posts = [NSMutableArray new];
+    for (Post *dbPost in [Post all]) {
+        VKPost* vkPost = [VKPost new];
+        vkPost.date = dbPost.date;
+        vkPost.content = dbPost.content;
+        vkPost.source_id = dbPost.source_id;
+        [posts addObject:vkPost];
+    }
+    
+    return posts;
+}
+
+- (void)replicateSourcesFromArray:(NSArray*)sources {
+    
+    for (VKSource* source in sources) {
+        Source *dbSource = [Source findOrCreate:@{[Source primaryKey] : @(source.source_id)}];
+        dbSource.name = source.name;
+    }
+
+    [CoreDataManager.sharedManager saveContext];
+}
+
+- (NSArray*)getSources {
+    
+    NSMutableArray *sources = [NSMutableArray new];
+    for (Source *dbSource in [Source all]) {
+        VKSource* vkSource = [VKSource new];
+        vkSource.name = dbSource.name;
+        vkSource.source_id = dbSource.identificator;
+        [sources addObject:vkSource];
+    }
+    
+    return sources;
 }
 
 @end

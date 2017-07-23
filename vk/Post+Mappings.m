@@ -11,16 +11,16 @@
 @implementation Post (Mappings)
 
 + (NSString *)primaryKey {
-    return @"post_hash";
+    return @"identificator";
 }
 
 
 + (NSDictionary *)mappings {
     return @{
-             @"post_hash"   : [self primaryKey],
-             @"content"     : @"content",
-             @"date"        : @"date",
-             @"source_id"   : @"source_id",
+             @"identificator" : [self primaryKey],
+             @"content"       : @"content",
+             @"date"          : @"date",
+             @"source_id"     : @"source_id",
              };
 }
 

@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, assign) double source_id;
 
+- (NSString*)md5Hash;
+
 @end

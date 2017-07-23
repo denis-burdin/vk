@@ -68,6 +68,8 @@ static NSArray *labels = nil;
         [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSArray* sources, NSError *error) {
             if (!error) {
                 [[DataManager sharedManager] replicatePostsFromArray:posts];
+                [[DataManager sharedManager] replicateSourcesFromArray:sources];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [weakSelf handleResponse:posts andSources:sources error:error];
                     // Finish infinite scroll animations
@@ -81,6 +83,11 @@ static NSArray *labels = nil;
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
                 [alert show];
+                
+                // read from db
+                NSArray* cashedPosts = [[DataManager sharedManager] getPosts];
+                NSArray* cashedSources = [[DataManager sharedManager] getSources];
+                [weakSelf handleResponse:cashedPosts andSources:cashedSources error:error];
             }
         }];
     }];
