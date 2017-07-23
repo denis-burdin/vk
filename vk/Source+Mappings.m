@@ -19,7 +19,6 @@
     return @{
              @"id"          : [self primaryKey],
              @"name"        : @"name",
-             @"source_id"   : @"source_id",
              };
 }
 

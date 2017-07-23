@@ -30,8 +30,6 @@
 		A291B64C1F1DEFB100644D88 /* vkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A291B64B1F1DEFB100644D88 /* vkTests.m */; };
 		A2940A551F24A61C00FA09AB /* vk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2940A531F24A61C00FA09AB /* vk.xcdatamodeld */; };
 		A2940A591F24C00300FA09AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2940A581F24C00300FA09AB /* CoreData.framework */; };
-		A2940A5E1F24C0B000FA09AB /* Post+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A5B1F24C0B000FA09AB /* Post+CoreDataProperties.m */; };
-		A2940A5F1F24C0B000FA09AB /* Source+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A5D1F24C0B000FA09AB /* Source+CoreDataProperties.m */; };
 		A2940A641F24C11800FA09AB /* Post+Mappings.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A611F24C11800FA09AB /* Post+Mappings.m */; };
 		A2940A651F24C11800FA09AB /* Source+Mappings.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A631F24C11800FA09AB /* Source+Mappings.m */; };
 /* End PBXBuildFile section */
@@ -90,10 +88,6 @@
 		A291B64D1F1DEFB100644D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2940A541F24A61C00FA09AB /* vk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vk.xcdatamodel; sourceTree = "<group>"; };
 		A2940A581F24C00300FA09AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		A2940A5A1F24C0B000FA09AB /* Post+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A2940A5B1F24C0B000FA09AB /* Post+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+CoreDataProperties.m"; sourceTree = "<group>"; };
-		A2940A5C1F24C0B000FA09AB /* Source+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Source+CoreDataProperties.h"; sourceTree = "<group>"; };
-		A2940A5D1F24C0B000FA09AB /* Source+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Source+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A2940A601F24C11800FA09AB /* Post+Mappings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Mappings.h"; sourceTree = "<group>"; };
 		A2940A611F24C11800FA09AB /* Post+Mappings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Mappings.m"; sourceTree = "<group>"; };
 		A2940A621F24C11800FA09AB /* Source+Mappings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Source+Mappings.h"; sourceTree = "<group>"; };
@@ -214,10 +208,6 @@
 		A28A70861F23967300EF61C6 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				A2940A5A1F24C0B000FA09AB /* Post+CoreDataProperties.h */,
-				A2940A5B1F24C0B000FA09AB /* Post+CoreDataProperties.m */,
-				A2940A5C1F24C0B000FA09AB /* Source+CoreDataProperties.h */,
-				A2940A5D1F24C0B000FA09AB /* Source+CoreDataProperties.m */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -467,12 +457,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2940A5F1F24C0B000FA09AB /* Source+CoreDataProperties.m in Sources */,
 				A28214741F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m in Sources */,
 				A28A70781F233FC700EF61C6 /* PostDetailsViewController.m in Sources */,
 				A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */,
 				A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */,
-				A2940A5E1F24C0B000FA09AB /* Post+CoreDataProperties.m in Sources */,
 				A282146D1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m in Sources */,
 				A27071491F1E007B0035E028 /* VKWrapper.m in Sources */,
 				A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */,

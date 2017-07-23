@@ -6,7 +6,7 @@
 //  Copyright © 2017 dbulabs. All rights reserved.
 //
 
-#import "Post+CoreDataProperties.h"
+#import "Post+CoreDataClass.h"
 
 @interface Post (Mappings)
 

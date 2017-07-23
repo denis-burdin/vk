@@ -6,7 +6,7 @@
 //  Copyright © 2017 dbulabs. All rights reserved.
 //
 
-#import "Source+CoreDataProperties.h"
+#import "Source+CoreDataClass.h"
 
 @interface Source (Mappings)
 

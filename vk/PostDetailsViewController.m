@@ -26,7 +26,6 @@
     NSLog(@"%@", post.content);
     post.content = @"Hello World!";
     [CoreDataManager.sharedManager saveContext];
-
 }
 
 - (void)didReceiveMemoryWarning {
