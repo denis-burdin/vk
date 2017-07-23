@@ -8,8 +8,6 @@
 
 #import "PostDetailsViewController.h"
 #import "VKPost.h"
-#import <ObjectiveRecord.h>
-#import "Post+Mappings.h"
 
 @interface PostDetailsViewController ()
 
@@ -21,11 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.textViewContent.text = self.post.content;
-    
-    Post *post = [Post findOrCreate:@{[Post primaryKey] : @(1)}];
-    NSLog(@"%@", post.content);
-    post.content = @"Hello World!";
-    [CoreDataManager.sharedManager saveContext];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -32,6 +32,8 @@
 		A2940A591F24C00300FA09AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2940A581F24C00300FA09AB /* CoreData.framework */; };
 		A2940A641F24C11800FA09AB /* Post+Mappings.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A611F24C11800FA09AB /* Post+Mappings.m */; };
 		A2940A651F24C11800FA09AB /* Source+Mappings.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A631F24C11800FA09AB /* Source+Mappings.m */; };
+		A2940A861F24D2CB00FA09AB /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A851F24D2CB00FA09AB /* DataManager.m */; };
+		A2940A891F24DB2E00FA09AB /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A881F24DB2E00FA09AB /* NSString+MD5.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,10 @@
 		A2940A611F24C11800FA09AB /* Post+Mappings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Mappings.m"; sourceTree = "<group>"; };
 		A2940A621F24C11800FA09AB /* Source+Mappings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Source+Mappings.h"; sourceTree = "<group>"; };
 		A2940A631F24C11800FA09AB /* Source+Mappings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Source+Mappings.m"; sourceTree = "<group>"; };
+		A2940A841F24D2CB00FA09AB /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A2940A851F24D2CB00FA09AB /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A2940A871F24DB2E00FA09AB /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		A2940A881F24DB2E00FA09AB /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		CBB30F6A97F1B7F1A824AAF9 /* Pods-vk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,8 @@
 				A282146C1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m */,
 				A28214721F20FC3300BC9668 /* UIScrollView+InfiniteScroll.h */,
 				A28214731F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m */,
+				A2940A871F24DB2E00FA09AB /* NSString+MD5.h */,
+				A2940A881F24DB2E00FA09AB /* NSString+MD5.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -182,6 +190,8 @@
 				A26467CB1F22A1D700207BDD /* VKSource.m */,
 				A23D026F1F20ABCF0044245A /* VKPost.h */,
 				A23D02701F20ABCF0044245A /* VKPost.m */,
+				A2940A841F24D2CB00FA09AB /* DataManager.h */,
+				A2940A851F24D2CB00FA09AB /* DataManager.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -459,6 +469,7 @@
 			files = (
 				A28214741F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m in Sources */,
 				A28A70781F233FC700EF61C6 /* PostDetailsViewController.m in Sources */,
+				A2940A891F24DB2E00FA09AB /* NSString+MD5.m in Sources */,
 				A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */,
 				A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */,
 				A282146D1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m in Sources */,
@@ -471,6 +482,7 @@
 				A28214711F20F22700BC9668 /* CustomInfiniteIndicator.m in Sources */,
 				A291B6331F1DEFB100644D88 /* AppDelegate.m in Sources */,
 				A23D02711F20ABCF0044245A /* VKPost.m in Sources */,
+				A2940A861F24D2CB00FA09AB /* DataManager.m in Sources */,
 				A291B6301F1DEFB100644D88 /* main.m in Sources */,
 				A23D02861F20D7440044245A /* PostTableViewCell.m in Sources */,
 				A2940A641F24C11800FA09AB /* Post+Mappings.m in Sources */,

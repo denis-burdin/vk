@@ -13,6 +13,7 @@
 #import "CustomInfiniteIndicator.h"
 #import "PostTableViewCell.h"
 #import "PostDetailsViewController.h"
+#import "DataManager.h"
 #import "VKWrapper.h"
 #import "VKPost.h"
 #import "VKSource.h"
@@ -65,12 +66,22 @@ static NSArray *labels = nil;
     // Add infinite scroll handler
     [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
         [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSArray* sources, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf handleResponse:posts andSources:sources error:error];
-                // Finish infinite scroll animations
-                [[UIApplication sharedApplication] stopNetworkActivity];
-                [tableView finishInfiniteScroll];
-            });
+            if (!error) {
+                [[DataManager sharedManager] replicatePostsFromArray:posts];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf handleResponse:posts andSources:sources error:error];
+                    // Finish infinite scroll animations
+                    [[UIApplication sharedApplication] stopNetworkActivity];
+                    [tableView finishInfiniteScroll];
+                });
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                message:error.description
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
         }];
     }];
     
