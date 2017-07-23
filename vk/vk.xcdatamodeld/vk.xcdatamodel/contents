@@ -10,10 +10,11 @@
     <entity name="Source" representedClassName="Source" syncable="YES" codeGenerationType="class">
         <attribute name="identificator" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sourcePosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="source" inverseEntity="Post" syncable="YES"/>
     </entity>
     <elements>
         <element name="Post" positionX="-54" positionY="-2001" width="128" height="120"/>
-        <element name="Source" positionX="-317" positionY="-1986" width="128" height="90"/>
+        <element name="Source" positionX="-317" positionY="-1986" width="128" height="105"/>
     </elements>
 </model>

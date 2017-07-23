@@ -19,6 +19,7 @@
     return @{
              @"identificator" : [self primaryKey],
              @"name"          : @"name",
+             @"photo_url"     : @"photo_url",
              };
 }
 

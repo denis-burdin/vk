@@ -3,4 +3,5 @@ target "vk" do
     platform :ios, '7.0'
     pod 'VK-ios-sdk'
     pod 'ObjectiveRecord'
+    pod 'SDWebImage'
 end

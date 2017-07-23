@@ -67,6 +67,7 @@ static NSString* const APP_ID = @"6118016";
                 VKSource *source = [VKSource new];
                 source.source_id = source_id;
                 source.name = [group objectForKey:@"name"];
+                source.photo_url = [group objectForKey:@"photo_200"];
                 [sources addObject:source];
             }
         }

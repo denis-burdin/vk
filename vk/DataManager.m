@@ -69,6 +69,7 @@
         VKSource* vkSource = [VKSource new];
         vkSource.name = dbSource.name;
         vkSource.source_id = dbSource.identificator;
+        vkSource.photo_url = dbSource.photo_url;
         [sources addObject:vkSource];
     }
     

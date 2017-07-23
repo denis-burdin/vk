@@ -2,17 +2,22 @@ PODS:
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - VK-ios-sdk (1.4.6)
 
 DEPENDENCIES:
   - ObjectiveRecord
+  - SDWebImage
   - VK-ios-sdk
 
 SPEC CHECKSUMS:
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
 
-PODFILE CHECKSUM: b247393e99dd18b1dd5e33f674b702a0eb7f577b
+PODFILE CHECKSUM: b3d4e165df5824635d57881c11a4fe640038a3d3
 
 COCOAPODS: 1.2.1

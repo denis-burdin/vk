@@ -12,6 +12,7 @@
 @interface VKSource : NSObject
 
 @property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* photo_url;
 @property (nonatomic, assign) double source_id;
 
 @end
