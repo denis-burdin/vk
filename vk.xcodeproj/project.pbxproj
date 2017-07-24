@@ -34,6 +34,7 @@
 		A2940A651F24C11800FA09AB /* Source+Mappings.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A631F24C11800FA09AB /* Source+Mappings.m */; };
 		A2940A861F24D2CB00FA09AB /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A851F24D2CB00FA09AB /* DataManager.m */; };
 		A2940A891F24DB2E00FA09AB /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A2940A881F24DB2E00FA09AB /* NSString+MD5.m */; };
+		A2940A8F1F25529C00FA09AB /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A2940A8E1F25529C00FA09AB /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		A2940A851F24D2CB00FA09AB /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A2940A871F24DB2E00FA09AB /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		A2940A881F24DB2E00FA09AB /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		A2940A8E1F25529C00FA09AB /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		CBB30F6A97F1B7F1A824AAF9 /* Pods-vk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 				A2577D721F1F4B4100268A91 /* Controllers */,
 				A27071461F1E00590035E028 /* Core */,
 				A28A70791F238FF900EF61C6 /* Model */,
+				A2940A8D1F25520300FA09AB /* Resources */,
 				A291B6311F1DEFB100644D88 /* AppDelegate.h */,
 				A291B6321F1DEFB100644D88 /* AppDelegate.m */,
 				A291B6371F1DEFB100644D88 /* Main.storyboard */,
@@ -296,6 +299,14 @@
 				A2940A631F24C11800FA09AB /* Source+Mappings.m */,
 			);
 			name = Mappings;
+			sourceTree = "<group>";
+		};
+		A2940A8D1F25520300FA09AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2940A8E1F25529C00FA09AB /* placeholder.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B486E22D39916EA5BA06859C /* Frameworks */ = {
@@ -401,6 +412,7 @@
 				A291B6411F1DEFB100644D88 /* LaunchScreen.storyboard in Resources */,
 				A291B63E1F1DEFB100644D88 /* Assets.xcassets in Resources */,
 				A291B6391F1DEFB100644D88 /* Main.storyboard in Resources */,
+				A2940A8F1F25529C00FA09AB /* placeholder.png in Resources */,
 				A23D02871F20D7440044245A /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

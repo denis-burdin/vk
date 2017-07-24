@@ -17,6 +17,7 @@
 #import "VKWrapper.h"
 #import "VKPost.h"
 #import "VKSource.h"
+#import <UIImageView+WebCache.h>
 
 @interface NewsViewController ()
 {
@@ -155,6 +156,10 @@ static NSArray *labels = nil;
     for (VKSource* source in [_sources allValues]) {
         if (source.source_id == fabs(post.source_id)) {
             cell.lblAuthor.text = source.name;
+            
+            // avatar
+            [cell.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:source.photo_url]
+                         placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             break;
         }
     }
