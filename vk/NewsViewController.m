@@ -197,7 +197,7 @@ static NSArray *labels = nil;
         [cell.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:post.photo_url]
                            placeholderImage:[UIImage imageNamed:@"placeholder_post.png"]];
     } else {
-        [cell.imageViewPhoto setHidden:YES];
+        [cell.imageViewPhoto setImage:[UIImage imageNamed:@"placeholder_post.png"]];
     }
 
     return cell;
