@@ -13,8 +13,6 @@
 		A23D02861F20D7440044245A /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D02841F20D7440044245A /* PostTableViewCell.m */; };
 		A23D02871F20D7440044245A /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23D02851F20D7440044245A /* PostTableViewCell.xib */; };
 		A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D028A1F20E3830044245A /* UIViewController+Utils.m */; };
-		A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2577D741F1F4D4E00268A91 /* TestViewController.m */; };
-		A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2577D771F1F4D6100268A91 /* ApiCallViewController.m */; };
 		A26467CC1F22A1D700207BDD /* VKSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A26467CB1F22A1D700207BDD /* VKSource.m */; };
 		A27071491F1E007B0035E028 /* VKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A27071481F1E007B0035E028 /* VKWrapper.m */; };
 		A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2763B541F1F5CB60015D279 /* NewsViewController.m */; };
@@ -59,10 +57,6 @@
 		A23D02851F20D7440044245A /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		A23D02891F20E3830044245A /* UIViewController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Utils.h"; sourceTree = "<group>"; };
 		A23D028A1F20E3830044245A /* UIViewController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utils.m"; sourceTree = "<group>"; };
-		A2577D731F1F4D4E00268A91 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		A2577D741F1F4D4E00268A91 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		A2577D761F1F4D6100268A91 /* ApiCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCallViewController.h; sourceTree = "<group>"; };
-		A2577D771F1F4D6100268A91 /* ApiCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCallViewController.m; sourceTree = "<group>"; };
 		A26467CA1F22A1D700207BDD /* VKSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKSource.h; sourceTree = "<group>"; };
 		A26467CB1F22A1D700207BDD /* VKSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKSource.m; sourceTree = "<group>"; };
 		A27071471F1E007B0035E028 /* VKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKWrapper.h; sourceTree = "<group>"; };
@@ -173,10 +167,6 @@
 			children = (
 				A291B6341F1DEFB100644D88 /* StartViewController.h */,
 				A291B6351F1DEFB100644D88 /* StartViewController.m */,
-				A2577D731F1F4D4E00268A91 /* TestViewController.h */,
-				A2577D741F1F4D4E00268A91 /* TestViewController.m */,
-				A2577D761F1F4D6100268A91 /* ApiCallViewController.h */,
-				A2577D771F1F4D6100268A91 /* ApiCallViewController.m */,
 				A2763B531F1F5CB60015D279 /* NewsViewController.h */,
 				A2763B541F1F5CB60015D279 /* NewsViewController.m */,
 				A28A70761F233FC700EF61C6 /* PostDetailsViewController.h */,
@@ -486,12 +476,10 @@
 				A28214741F20FC3300BC9668 /* UIScrollView+InfiniteScroll.m in Sources */,
 				A28A70781F233FC700EF61C6 /* PostDetailsViewController.m in Sources */,
 				A2940A891F24DB2E00FA09AB /* NSString+MD5.m in Sources */,
-				A2577D751F1F4D4E00268A91 /* TestViewController.m in Sources */,
 				A23D028B1F20E3830044245A /* UIViewController+Utils.m in Sources */,
 				A282146D1F20F1E300BC9668 /* UIApplication+NetworkIndicator.m in Sources */,
 				A27071491F1E007B0035E028 /* VKWrapper.m in Sources */,
 				A2763B551F1F5CB60015D279 /* NewsViewController.m in Sources */,
-				A2577D781F1F4D6100268A91 /* ApiCallViewController.m in Sources */,
 				A291B6361F1DEFB100644D88 /* StartViewController.m in Sources */,
 				A2940A651F24C11800FA09AB /* Source+Mappings.m in Sources */,
 				A26467CC1F22A1D700207BDD /* VKSource.m in Sources */,
