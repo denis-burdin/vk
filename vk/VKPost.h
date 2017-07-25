@@ -11,6 +11,9 @@
 @interface VKPost : NSObject
 
 @property (nonatomic, strong) NSDate* date;
+@property (nonatomic, strong) NSString* author;         // for further display in details view controller
+@property (nonatomic, strong) NSString* authorImageURL; // for further display in details view controller
+
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, assign) double source_id;
 @property (nonatomic, strong) NSString *photo_url;

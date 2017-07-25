@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString* const APP_ID = @"6118016";
+
 @interface VKWrapper : NSObject
 
 + (instancetype)sharedInstance;

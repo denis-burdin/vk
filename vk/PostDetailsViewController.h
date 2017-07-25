@@ -14,5 +14,9 @@
 
 @property (nonatomic, strong) VKPost* post;
 @property (weak, nonatomic) IBOutlet UITextView *textViewContent;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
+@property (weak, nonatomic) IBOutlet UILabel *lblAuthor;
+@property (weak, nonatomic) IBOutlet UILabel *lblDate;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
 
 @end

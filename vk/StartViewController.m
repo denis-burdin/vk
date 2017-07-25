@@ -24,7 +24,7 @@ static NSArray *SCOPE = nil;
     // Do any additional setup after loading the view, typically from a nib.
     SCOPE = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_NOHTTPS, VK_PER_EMAIL, VK_PER_MESSAGES];
 
-    [[VKSdk initializeWithAppId:@"6118016"] registerDelegate:self];
+    [[VKSdk initializeWithAppId:APP_ID] registerDelegate:self];
     [[VKSdk instance] setUiDelegate:self];
     [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
         if (state == VKAuthorizationAuthorized) {
@@ -33,9 +33,6 @@ static NSArray *SCOPE = nil;
             [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         }
     }];
-
-//    [[VKWrapper sharedInstance].sdkInstance setUiDelegate:self];
-//    [[VKWrapper sharedInstance] signIn];
 }
 
 - (void)startWorking {

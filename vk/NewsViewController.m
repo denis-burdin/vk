@@ -165,12 +165,9 @@ static NSArray *labels = nil;
     PostTableViewCell *cell = (PostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"postTableViewCell" forIndexPath:indexPath];
     
     // text
-    CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
     VKPost* post = (VKPost*)[_posts objectAtIndex:indexPath.row];
     NSString *content = [post content];
-    CGRect expectedLabelSize = [content boundingRectWithSize:szMaxLabel options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.lblContent.font } context:nil];
     cell.lblContent.text = content;
-    [cell.lblContent setFrame:CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, expectedLabelSize.size.width, expectedLabelSize.size.height)];
     
     // date
     NSDateFormatter* f = [[NSDateFormatter alloc] init];
@@ -184,10 +181,17 @@ static NSArray *labels = nil;
     for (VKSource* source in _sources) {
         if (source.source_id == fabs(post.source_id)) {
             cell.lblAuthor.text = source.name;
+            post.author = source.name;
             
             // avatar
-            [cell.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:source.photo_url]
+            post.authorImageURL = source.photo_url;
+            if (source.photo_url.length) {
+                [cell.imageViewAvatar sd_setImageWithURL:[NSURL URLWithString:source.photo_url]
                          placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            } else {
+                [cell.imageViewAvatar setImage:[UIImage imageNamed:@"placeholder.png"]];
+            }
+
             break;
         }
     }

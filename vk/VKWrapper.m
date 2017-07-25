@@ -11,8 +11,6 @@
 #import "VKSource.h"
 #import <VKSdk.h>
 
-static NSString* const APP_ID = @"6118016";
-
 @interface VKWrapper()
 {
     NSString* _next_from;
