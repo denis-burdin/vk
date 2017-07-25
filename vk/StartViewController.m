@@ -8,8 +8,8 @@
 
 #import "StartViewController.h"
 #import "VKWrapper.h"
+#import <GCNetworkReachability.h>
 
-static NSString *const TOKEN_KEY = @"my_application_access_token";
 static NSString *const NEXT_CONTROLLER_SEGUE_ID = @"START_WORK";
 static NSArray *SCOPE = nil;
 
@@ -40,7 +40,13 @@ static NSArray *SCOPE = nil;
 }
 
 - (IBAction)authorize:(id)sender {
-    [VKSdk authorize:SCOPE];
+    GCNetworkReachability *reachability = [GCNetworkReachability reachabilityForInternetConnection];
+    if ([reachability isReachable]) {
+        [VKSdk authorize:SCOPE];
+    } else {
+        // go offline
+        [self startWorking];
+    }
 }
 
 - (IBAction)openShareDialog:(id)sender {

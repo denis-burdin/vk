@@ -18,6 +18,7 @@
 #import "VKPost.h"
 #import "VKSource.h"
 #import <UIImageView+WebCache.h>
+#import <GCNetworkReachability.h>
 
 @interface NewsViewController ()
 {
@@ -65,39 +66,52 @@ static NSArray *labels = nil;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 88.0;
     
+    GCNetworkReachability *reachability = [GCNetworkReachability reachabilityForInternetConnection];
     __weak typeof(self) weakSelf = self;
-    // Add infinite scroll handler
-    [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
-        [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSArray* sources, NSError *error) {
-            if (!error) {
-                [[DataManager sharedManager] replicatePostsFromArray:posts];
-                [[DataManager sharedManager] replicateSourcesFromArray:sources];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf handleResponse:posts andSources:sources error:error];
-                    // Finish infinite scroll animations
-                    [[UIApplication sharedApplication] stopNetworkActivity];
-                    [tableView finishInfiniteScroll];
-                });
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                message:error.description
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-                
-                // read from db
-                NSArray* cashedPosts = [[DataManager sharedManager] getPosts];
-                NSArray* cashedSources = [[DataManager sharedManager] getSources];
-                [weakSelf handleResponse:cashedPosts andSources:cashedSources error:error];
-            }
-        }];
-    }];
     
-    // Load initial data
-    [self.tableView beginInfiniteScroll:YES];
-    [[UIApplication sharedApplication] startNetworkActivity];
+    if ([reachability isReachable])
+    {
+        // do stuff that requires an internet connection…
+        // Add infinite scroll handler
+        [self.tableView addInfiniteScrollWithHandler:^(UITableView *tableView) {
+            [[VKWrapper sharedInstance] receivePosts:^(NSArray *posts, NSArray* sources, NSError *error) {
+                if (!error) {
+                    [[DataManager sharedManager] replicatePostsFromArray:posts];
+                    [[DataManager sharedManager] replicateSourcesFromArray:sources];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [weakSelf handleResponse:posts andSources:sources error:error];
+                        // Finish infinite scroll animations
+                        [[UIApplication sharedApplication] stopNetworkActivity];
+                        [tableView finishInfiniteScroll];
+                    });
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                    message:error.description
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+            }];
+        }];
+        
+        // Load initial data
+        [self.tableView beginInfiniteScroll:YES];
+        [[UIApplication sharedApplication] startNetworkActivity];
+    } else {
+        // read from db
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Please check your internet connection, you could see cached data only"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+        NSArray* cashedPosts = [[DataManager sharedManager] getPosts];
+        NSArray* cashedSources = [[DataManager sharedManager] getSources];
+        [weakSelf handleResponse:cashedPosts andSources:cashedSources error:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,17 +151,21 @@ static NSArray *labels = nil;
         }
     }
 
-    NSIndexSet *newIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(initialPostsCount, _posts.count - initialPostsCount)];
-    NSMutableArray *newIndexPaths = [NSMutableArray new];
+    if ([[GCNetworkReachability reachabilityForInternetConnection] isReachable]) {
+        NSIndexSet *newIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(initialPostsCount, _posts.count - initialPostsCount)];
+        NSMutableArray *newIndexPaths = [NSMutableArray new];
 
-    [newIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
-        [newIndexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
-    }];
+        [newIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
+            [newIndexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+        }];
 
-    // update table view
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:newIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];    
+        // update table view
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:newIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+    } else {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)logout:(id)sender {

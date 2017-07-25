@@ -4,4 +4,5 @@ target "vk" do
     pod 'VK-ios-sdk'
     pod 'ObjectiveRecord'
     pod 'SDWebImage'
+    pod 'GCNetworkReachability'
 end
