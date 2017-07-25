@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		773CFE206E1820E85723DBF6 /* libPods-vk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F9A42F1FB823591A15D136 /* libPods-vk.a */; };
+		A235F0561F26503900678368 /* placeholder_post.png in Resources */ = {isa = PBXBuildFile; fileRef = A235F0551F26503900678368 /* placeholder_post.png */; };
 		A23D02711F20ABCF0044245A /* VKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D02701F20ABCF0044245A /* VKPost.m */; };
 		A23D02861F20D7440044245A /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D02841F20D7440044245A /* PostTableViewCell.m */; };
 		A23D02871F20D7440044245A /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23D02851F20D7440044245A /* PostTableViewCell.xib */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		55F9A42F1FB823591A15D136 /* libPods-vk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFFE4B4AA89E748AB4DD90 /* Pods-vk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.release.xcconfig"; path = "Pods/Target Support Files/Pods-vk/Pods-vk.release.xcconfig"; sourceTree = "<group>"; };
+		A235F0551F26503900678368 /* placeholder_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_post.png; sourceTree = "<group>"; };
 		A23D026F1F20ABCF0044245A /* VKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPost.h; sourceTree = "<group>"; };
 		A23D02701F20ABCF0044245A /* VKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPost.m; sourceTree = "<group>"; };
 		A23D02831F20D7440044245A /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				A2940A8E1F25529C00FA09AB /* placeholder.png */,
+				A235F0551F26503900678368 /* placeholder_post.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A291B6411F1DEFB100644D88 /* LaunchScreen.storyboard in Resources */,
+				A235F0561F26503900678368 /* placeholder_post.png in Resources */,
 				A291B63E1F1DEFB100644D88 /* Assets.xcassets in Resources */,
 				A291B6391F1DEFB100644D88 /* Main.storyboard in Resources */,
 				A2940A8F1F25529C00FA09AB /* placeholder.png in Resources */,

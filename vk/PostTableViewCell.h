@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDate;
 @property (weak, nonatomic) IBOutlet UILabel *lblAuthor;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewAvatar;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewPhoto;
 
 @end

@@ -32,6 +32,7 @@
             dbPost.content = vkPost.content;
             dbPost.date = vkPost.date;
             dbPost.source_id = vkPost.source_id;
+            dbPost.photo_url = vkPost.photo_url;
         }
     }
 
@@ -46,6 +47,7 @@
         vkPost.date = dbPost.date;
         vkPost.content = dbPost.content;
         vkPost.source_id = dbPost.source_id;
+        vkPost.photo_url = dbPost.photo_url;
         [posts addObject:vkPost];
     }
     
@@ -57,6 +59,7 @@
     for (VKSource* source in sources) {
         Source *dbSource = [Source findOrCreate:@{[Source primaryKey] : @(source.source_id)}];
         dbSource.name = source.name;
+        dbSource.photo_url = source.photo_url;
     }
 
     [CoreDataManager.sharedManager saveContext];

@@ -4,6 +4,7 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identificator" attributeType="String" syncable="YES"/>
+        <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="source_id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="source" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Source" inverseName="sourcePosts" inverseEntity="Source" syncable="YES"/>
     </entity>
@@ -14,7 +15,7 @@
         <relationship name="sourcePosts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="source" inverseEntity="Post" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-54" positionY="-2001" width="128" height="120"/>
+        <element name="Post" positionX="-54" positionY="-2001" width="128" height="135"/>
         <element name="Source" positionX="-317" positionY="-1986" width="128" height="105"/>
     </elements>
 </model>

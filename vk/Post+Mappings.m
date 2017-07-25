@@ -21,6 +21,7 @@
              @"content"       : @"content",
              @"date"          : @"date",
              @"source_id"     : @"source_id",
+             @"photo_url"     : @"photo_url",
              };
 }
 

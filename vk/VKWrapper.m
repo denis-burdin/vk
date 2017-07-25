@@ -54,6 +54,20 @@ static NSString* const APP_ID = @"6118016";
                 post.date = [NSDate dateWithTimeIntervalSince1970:dtPost];
                 post.content = content;
                 post.source_id = [[item objectForKey:@"source_id"] doubleValue];
+                
+                // extract photo
+                if ([item objectForKey:@"attachments"]) {
+                    for (NSDictionary *attachment in [item objectForKey:@"attachments"]) {
+                        if ([attachment objectForKey:@"photo"]) {
+                            NSDictionary* photoDictionary = [attachment objectForKey:@"photo"];
+                            if ([photoDictionary count]) {
+                                post.photo_url = [photoDictionary objectForKey:@"photo_604"];
+                                break;
+                            }
+                        }
+                    }
+                }
+                
                 [posts addObject:post];
             }
         }

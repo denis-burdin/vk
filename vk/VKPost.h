@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSDate* date;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, assign) double source_id;
+@property (nonatomic, strong) NSString *photo_url;
 
 - (NSString*)md5Hash;
 

@@ -21,8 +21,8 @@
 
 @interface NewsViewController ()
 {
-    NSMutableDictionary *_posts;    // key = md5Hash; value = VKPost instance
-    NSMutableDictionary *_sources;  // key = source_id; value = VKSource instance
+    NSMutableArray *_posts;   // key = md5Hash
+    NSMutableArray *_sources; // key = source_id
 }
 
 @end
@@ -34,8 +34,8 @@ static NSArray *labels = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _posts = [NSMutableDictionary new];
-    _sources = [NSMutableDictionary new];
+    _posts = [NSMutableArray new];
+    _sources = [NSMutableArray new];
     
     [self vk_registerAllNibsWithTableView:self.tableView];
 
@@ -106,20 +106,48 @@ static NSArray *labels = nil;
 }
 
 - (void)handleResponse:(NSArray *)posts andSources:(NSArray*)sources error:(NSError *)error {
+
     // update table view
-    for (VKPost *vkPost in posts) {
-        [_posts setObject:vkPost forKey:[vkPost md5Hash]];
+    NSInteger initialPostsCount = [_posts count];
+    for (VKPost *vkPostNew in posts) {
+        BOOL presented = NO;
+        for (VKPost *vkPostOld in _posts) {
+            if ([vkPostNew.md5Hash isEqualToString:vkPostOld.md5Hash]) {
+                presented = YES;
+                break;
+            }
+        }
+        
+        if (!presented) {
+            [_posts addObject:vkPostNew];
+        }
     }
 
-    for (VKSource *vkSource in sources) {
-        [_sources setObject:vkSource forKey:@(fabs(vkSource.source_id))];
+    for (VKSource *vkSourceNew in sources) {
+        BOOL presented = NO;
+        for (VKSource *vkSourceOld in _sources) {
+            if (fabs(vkSourceNew.source_id) == fabs(vkSourceOld.source_id)) {
+                presented = YES;
+                break;
+            }
+        }
+        
+        if (!presented) {
+            [_sources addObject:vkSourceNew];
+        }
     }
 
-    [self.tableView reloadData];
-    
-//    [self.tableView beginUpdates];
-//    [self.tableView insertRowsAtIndexPaths:newIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-//    [self.tableView endUpdates];
+    NSIndexSet *newIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(initialPostsCount, _posts.count - initialPostsCount)];
+    NSMutableArray *newIndexPaths = [NSMutableArray new];
+
+    [newIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, __unused BOOL *stop) {
+        [newIndexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+    }];
+
+    // update table view
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:newIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];    
 }
 
 - (void)logout:(id)sender {
@@ -138,7 +166,7 @@ static NSArray *labels = nil;
     
     // text
     CGSize szMaxLabel = CGSizeMake (cell.frame.size.width - cell.lblContent.frame.origin.x, 1000);
-    VKPost* post = (VKPost*)[[_posts allValues] objectAtIndex:indexPath.row];
+    VKPost* post = (VKPost*)[_posts objectAtIndex:indexPath.row];
     NSString *content = [post content];
     CGRect expectedLabelSize = [content boundingRectWithSize:szMaxLabel options:NSStringDrawingUsesLineFragmentOrigin attributes:@{ NSFontAttributeName:cell.lblContent.font } context:nil];
     cell.lblContent.text = content;
@@ -153,7 +181,7 @@ static NSArray *labels = nil;
     cell.lblDate.text = [f stringFromDate:post.date];
 
     // author
-    for (VKSource* source in [_sources allValues]) {
+    for (VKSource* source in _sources) {
         if (source.source_id == fabs(post.source_id)) {
             cell.lblAuthor.text = source.name;
             
@@ -163,12 +191,20 @@ static NSArray *labels = nil;
             break;
         }
     }
-    
+
+    // photo
+    if (post.photo_url.length) {
+        [cell.imageViewPhoto sd_setImageWithURL:[NSURL URLWithString:post.photo_url]
+                           placeholderImage:[UIImage imageNamed:@"placeholder_post.png"]];
+    } else {
+        [cell.imageViewPhoto setHidden:YES];
+    }
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VKPost* post = (VKPost*)[[_posts allValues] objectAtIndex:indexPath.row];
+    VKPost* post = (VKPost*)[_posts objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toPostDetails" sender:post];
 }
 
